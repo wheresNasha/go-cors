@@ -72,19 +72,15 @@ fetch("https://bank.com/api/transfer", {
 ### Without CORS middleware
 
 Browser blocks the request. Console error:
-
 ```
 Access to fetch at 'http://localhost:8080/delete' from origin 'http://localhost:3000'
 has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present
-as DELETE is not in the Access-Control-Allow-Methods
 ```
-
-![CORS blocked](images/Cors-3.png)
-![CORS blocked](images/Cors-4.png)
+![CORS blocked](images/cors-5.png)
 
 Network tab shows:
-1. **OPTIONS** `/delete` → 404 or missing CORS headers (preflight fails)
-2. **POST** `/delete` → blocked / failed
+1. **OPTIONS** `/create` → 404 or missing CORS headers (preflight fails)
+2. **POST** `/create` → failed
 
 ---
 
@@ -115,7 +111,6 @@ Access-Control-Allow-Origin: http://localhost:3000
 Access-Control-Allow-Methods: GET,POST,PUT,DELETE,PATCH,HEAD,OPTIONS
 Access-Control-Allow-Headers: Content-Type
 ```
-
 ---
 
 ## CORS headers explained
@@ -128,6 +123,23 @@ Access-Control-Allow-Headers: Content-Type
 | `Access-Control-Allow-Credentials` | Whether cookies/auth headers are allowed (`true` / omit) |
 
 > **Note:** GET, POST, HEAD are **CORS-safelisted methods** — browsers always allow them in preflight. PUT, DELETE, PATCH must appear in `Allow-Methods`.
+
+---
+
+### With CORS middleware but DELETE is not in the Access-Control-Allow-Methods
+
+```
+Access to fetch at 'http://localhost:8080/delete' from origin 'http://localhost:3000'
+has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present
+as DELETE is not in the Access-Control-Allow-Methods
+```
+
+![CORS blocked](images/Cors-3.png)
+![CORS blocked](images/Cors-4.png)
+
+Network tab shows:
+1. **OPTIONS** `/delete` → missing CORS method (preflight fails)
+2. **POST** `/delete` → failed
 
 ---
 
