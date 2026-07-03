@@ -79,8 +79,8 @@ has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is pres
 as DELETE is not in the Access-Control-Allow-Methods
 ```
 
-![CORS blocked](images/Cors 3.png)
-![CORS blocked](images/Cors 4.png)
+![CORS blocked](images/Cors-3.png)
+![CORS blocked](images/Cors-4.png)
 
 Network tab shows:
 1. **OPTIONS** `/create` → 404 or missing CORS headers (preflight fails)
@@ -92,8 +92,8 @@ Network tab shows:
 
 Preflight passes, then the real request goes through.
 
-![CORS working — preflight + POST + DELETE](images/Cors 1.png)
-![CORS working — preflight + POST + DELETE](images/Cors 2.png)
+![CORS working — preflight + POST + DELETE](images/Cors-1.png)
+![CORS working — preflight + POST + DELETE](images/Cors-2.png)
 
 Network tab shows **two requests** on button click:
 
