@@ -74,11 +74,13 @@ fetch("https://bank.com/api/transfer", {
 Browser blocks the request. Console error:
 
 ```
-Access to fetch at 'http://localhost:8080/create' from origin 'http://localhost:3000'
+Access to fetch at 'http://localhost:8080/delete' from origin 'http://localhost:3000'
 has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present
+as DELETE is not in the Access-Control-Allow-Methods
 ```
 
-![CORS blocked — no middleware](docs/screenshots/cors-blocked.png)
+![CORS blocked](images/Cors 3.png)
+![CORS blocked](images/Cors 4.png)
 
 Network tab shows:
 1. **OPTIONS** `/create` → 404 or missing CORS headers (preflight fails)
@@ -90,7 +92,8 @@ Network tab shows:
 
 Preflight passes, then the real request goes through.
 
-![CORS working — preflight + POST](docs/screenshots/cors-with-preflight.png)
+![CORS working — preflight + POST + DELETE](images/Cors 1.png)
+![CORS working — preflight + POST + DELETE](images/Cors 2.png)
 
 Network tab shows **two requests** on button click:
 
