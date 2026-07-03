@@ -83,8 +83,8 @@ as DELETE is not in the Access-Control-Allow-Methods
 ![CORS blocked](images/Cors-4.png)
 
 Network tab shows:
-1. **OPTIONS** `/create` → 404 or missing CORS headers (preflight fails)
-2. **POST** `/create` → blocked / failed
+1. **OPTIONS** `/delete` → 404 or missing CORS headers (preflight fails)
+2. **POST** `/delete` → blocked / failed
 
 ---
 
