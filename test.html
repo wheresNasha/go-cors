@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <button onclick="create()">Create</button>
+  <script>
+    async function create() {
+      const res = await fetch("http://localhost:8080/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: "test" }),
+      });
+      console.log(await res.json());
+    }
+  </script>
+
+<button onclick="remove()">Delete</button>
+<script>
+  async function remove() {
+    const res = await fetch("http://localhost:8080/delete", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: "test" }),
+    });
+    console.log(await res.json());
+  }
+</script>
+
+</body>
+</html>

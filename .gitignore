@@ -1,0 +1,9 @@
+# Binaries
+go-crud
+*.exe
+
+# IDE
+.idea/
+
+# OS
+.DS_Store
